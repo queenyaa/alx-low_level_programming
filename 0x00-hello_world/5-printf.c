@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 /**
- * Main - Program that prints file using printf
+ * main - Program that prints file using printf
  * Description: prints "with proper grammar,but the outcome is a piece of art,"
  * Return: 0 (Success)
  */
