@@ -8,7 +8,7 @@
  * Return: Always 0 (Success)
  */
 
-//the main function is the entry point
+/*the main function is the entry point*/
 int main(void)
 {
 printf("Size of a char: %zu byte(s)\n", sizeof(char));
