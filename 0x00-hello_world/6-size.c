@@ -1,15 +1,9 @@
 #include <stdio.h>
-
 /**
- * Main - Entry point
- *
- * Description: prints "sizes of various variables"
- *
+ * main - Entry point
  * Return: Always 0 (Success)
  */
-
 int main(void)
-/*the main function is the entry point*/
 {
 printf("Size of a char: %zu byte(s)\n", sizeof(char));
 printf("Size of an int: %zu byte(s)\n", sizeof(int));
