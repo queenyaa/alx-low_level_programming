@@ -1,9 +1,9 @@
 #include <stdio.h>
 
 /**
- * main -- Entry point
- * This is to print "Programming is like building a multilingual puzzle"
- * Return 0, to tell the Processor it was a success
+ * main - Entry point
+ * Description: prints "Programming is like building a multilingual puzzle"
+ * Return: 0, success
  */
 
 int main(void)
