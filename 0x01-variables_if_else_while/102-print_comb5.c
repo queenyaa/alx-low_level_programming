@@ -10,30 +10,23 @@ int main(void)
 {
 	int a;
 	int b;
-	int c;
-	int d;
 
-	for (a = '0'; a <= '9'; a++)
+	for (a = 0; a < 100; a++)
 	{
-		for (b = '0'; b <= '9'; b++)
+		for (b = 0; j < 100; j++)
 		{
-			for (c = a; c <= '9'; c++)
+			if (a < b)
 			{
-				for (d = b + 1; d <= '9'; d++)
+				putchar((a / 10) + 48);
+				putchar((a % 10) + 48);
+				putchar(' ');
+				putchar((b / 10) + 48);
+				putchar((b % 10) + 48);
+				if (a != 98 || b != 99)
 				{
-					putchar(a);
-					putchar(b);
+					putchar(',');
 					putchar(' ');
-					putchar(c);
-					putchar(d);
-
-					if (!((a == '9' && b == '8') && (c == '9' && d == '9')))
-					{
-						putchar(',');
-						putchar(' ');
-					}
 				}
-				d = '0';
 			}
 		}
 	}
