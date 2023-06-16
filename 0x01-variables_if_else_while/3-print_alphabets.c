@@ -3,7 +3,7 @@
 /**
  * main - Entry point
  * Description: program to print a-z and A-Z
- * Retun: Always 0 (success)
+ * Return: Always 0 (success)
  */
 
 int main(void)
