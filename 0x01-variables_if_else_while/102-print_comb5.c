@@ -8,22 +8,32 @@
 
 int main(void)
 {
-	int o, p;
+	int a;
+	int b;
+	int c;
+	int d;
 
-	for (o = 0; o < 100; o++)
+	for (a = '0'; a <= '9'; a++)
 	{
-		for (p = o; p < 100; p++)
+		for (b = '0'; b <= '9'; b++)
 		{
-			putchar((o / 10) + '0');
-			putchar((o % 10) + '0');
-			putchar(' ');
-			putchar((p / 10) + '0');
-			putchar((p % 10) + '0');
-
-			if (o != 99 || p != 99)
+			for (c = a; c <= '9'; c++)
 			{
-				putchar(',');
-				putchar(' ');
+				for (d = b + 1; d <= '9'; d++)
+				{
+					putchar(a);
+					putchar(b);
+					putchar(' ');
+					putchar(c);
+					putchar(d);
+
+					if (!((a == '9' && b == '8') && (c == '9' && d == '9')))
+					{
+						putchar(',');
+						putchar(' ');
+					}
+				}
+				d = '0';
 			}
 		}
 	}
