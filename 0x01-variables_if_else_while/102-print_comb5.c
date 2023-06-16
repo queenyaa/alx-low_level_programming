@@ -8,22 +8,24 @@
 
 int main(void)
 {
-	int a;
-	int b;
+	int a, b;
 
 	for (a = 0; a < 100; a++)
 	{
-		for (b = a; j < 100; j++)
+		for (b = 0; b < 100; b++)
 		{
-			putchar((a / 10) + '0');
-			putchar((a % 10) + '0');
-			putchar(' ');
-			putchar((b / 10) + '0');
-			putchar((b % 10) + '0');
-			if (a != 99 || b != 99)
+			if (a < b)
 			{
-				putchar(',');
+				putchar((a / 10) + 48);
+				putchar((a % 10) + 48);
 				putchar(' ');
+				putchar((b / 10) + 48);
+				putchar((b % 10) + 48);
+				if (a != 98 || b != 99)
+				{
+					putchar(',');
+					putchar(' ');
+				}
 			}
 		}
 	}
