@@ -7,12 +7,13 @@
  * Description: for a number n assign a random number
  * Return: Always 0 (success)
  */
+
 int main(void)
 {
 	int n;
 
 	srand(time(0));
-	n = rand() - REAND_MAX / 2;
+	n = rand() - RAND_MAX / 2;
 	if (n > 0)
 	{
 		printf("%i is positive\n", n);
