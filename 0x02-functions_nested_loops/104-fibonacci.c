@@ -12,6 +12,8 @@ int main(void)
 
 	printf("%lu, %lu", a, b);
 
+	int i;
+
 	for (int i = 3; i <= 98; i++)
 	{
 		unsigned long c = a + b;
