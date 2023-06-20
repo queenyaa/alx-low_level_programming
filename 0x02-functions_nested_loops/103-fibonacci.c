@@ -5,7 +5,7 @@
  * Return: Always 0 (success)
  */
 
-int mai(void)
+int main(void)
 {
 	unsigned long o, p, q, r, s;
 
