@@ -7,16 +7,16 @@
 
 int main(void)
 {
-	unsigned long long a = 1; /* first fibonacci number */
-	unsigned long long b = 2; /* second fibonacci number */
+	unsigned long a = 1; /* first fibonacci number */
+	unsigned long b = 2; /* second fibonacci number */
 
-	printf("%llu, %llu", a, b);
+	printf("%lu, %lu", a, b);
 
 	for (int i = 3; i <= 98; i++)
 	{
-		unsigned long long c = a + b;
+		unsigned long c = a + b;
 
-		printf(", %llu", c);
+		printf(", %lu", c);
 		a = b;
 		b = c;
 	}
