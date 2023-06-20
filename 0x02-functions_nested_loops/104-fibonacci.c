@@ -10,10 +10,9 @@ int main(void)
 	unsigned long a = 1; /* first fibonacci number */
 	unsigned long b = 2; /* second fibonacci number */
 	unsigned long c;
+	int i;
 
 	printf("%lu, %lu", a, b);
-
-	int i;
 
 	for (i = 3; i <= 98; i++)
 	{
