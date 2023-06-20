@@ -3,6 +3,7 @@
 /**
  * main - Entry point
  * Description: prototype to print lowercase alphabet
+ * print_alphabet: print alphaber in lowercase
  * Return: Always 0 (success)
  */
 
