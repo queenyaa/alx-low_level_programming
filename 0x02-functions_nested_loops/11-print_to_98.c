@@ -9,18 +9,18 @@
 
 void print_to_98(int v)
 {
-	if (v < 98)
+	while (v < 98)
 	{
 		printf("%d, ", v);
 		v++;
 	}
-	else if (v > 98)
+	while (v > 98)
 	{
 		printf("%d, ", v);
 		v--;
 	}
-	else
-	{
-		printf("%d\n", v);
-	}
+	if (v == 98)
+		printf("%d", v);
+
+	printf("\n");
 }
