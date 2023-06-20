@@ -14,9 +14,9 @@ int main(void)
 
 	int i;
 
-	for (int i = 3; i <= 98; i++)
+	for (i = 3; i <= 98; i++)
 	{
-		unsigned long c = a + b;
+		c = a + b;
 
 		printf(", %lu", c);
 		a = b;
