@@ -7,33 +7,18 @@
 
 int main(void)
 {
-	unsigned long in c, d, e, f, g, h, i;
+	unsigned long long a = 1; /* first fibonacci number */
+	unsigned long long b = 2; /* second fibonacci number */
 
-	d = 1;
-	e = 2;
+	printf("%llu, %llu", a, b);
 
-	printf("%lu", d);
-
-	for (c = 1; c < 91; c++)
+	for (int i = 3; i <= 98; i++)
 	{
-		printf(", %lu", e);
-		e = e + d;
-		d = e - d;
-	}
+		unsigned long long c = a + b;
 
-	f = e / 1000000000;
-	g = e % 1000000000;
-	h = e / 1000000000;
-	i = e % 1000000000;
-
-	for (c = 92; c < 99; ++c)
-	{
-		printf(", %lu", h + (i / 1000000000));
-		printf("%lu", i % 1000000000);
-		h = h + e;
-		e = h - e;
-		e = e + g;
-		g = i - g;
+		printf(", %llu", c);
+		a = b;
+		b = c;
 	}
 	printf("\n");
 
