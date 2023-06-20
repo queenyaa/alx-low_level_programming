@@ -2,6 +2,7 @@
 
 /**
  * main - Entry point
+ * main.h: not including standard libraries
  * Description: program to pint _putchar followed by a new line
  * Return: Always 0 (succes)
  */
