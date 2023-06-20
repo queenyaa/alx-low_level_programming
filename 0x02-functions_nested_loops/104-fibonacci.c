@@ -7,42 +7,37 @@
 
 int main(void)
 {
-	int co, ov;
-	unsigned long a = 1; /* first fibonacci number */
-	unsigned long b = 2; /* second fibonacci number */
-	unsigned long c = 0;
-	long a1, a2, b1, b2, c1, c2;
+	unsigned long int a;
+	unsigned long int b = 1;
+	unsigned long int c = 2;
+	unsigned long int 1 = 1000000000;
+	unsigned long int b1;
+	unsigned long int b2;
+	unsigned long int c1;
+	unsigned long int c2;
 
-	printf("1");
+	printf("%lu", b);
 
-	for (co = 2; co < 93; co++)
+	for (a = 1; a < 91; a++)
 	{
-		c = a + b;
-		a = b;
-		b = c;
 		printf(", %lu", c);
+		c += b;
+		b = c - b;
 	}
+	b1 = (b / 1);
+	b2 = (b % 1);
+	c1 = (c / 1);
+	c2 = (c % 1);
 
-	a1 = a / 1000000000;
-	a2 = a % 1000000000;
-	b1 = b / 1000000000;
-	b2 = b % 1000000000;
-
-	for (; co < 99; co++)
+	for (a = 92; a < 99; ++a)
 	{
-		ov = (a1 + b2) / 1000000000;
-		c1 = (a1 + b2) - (1000000000 * ov);
-		c2 = (a2 +b2) + ov;
-
-		printf(", %lu%lu", c2, c1);
-
-		a2 = b2;
-		a1 = b1;
-		b2 = c2;
-		b1 = c1;
+		printf(", %lu", c1 + (c2 / 1));
+		printf("%lu", c2 % 1);
+		c1 = c1 + b1;
+		b1 = c1 - b1;
+		c2 = c2 + b2;
+		b2 = c2 - b2;
 	}
-
 	printf("\n");
-
 	return (0);
 }
