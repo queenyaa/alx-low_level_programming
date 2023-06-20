@@ -13,9 +13,9 @@ int main(void)
 	long double c;
 	int v;
 
-	v = 1
-	a = 1
-	b = 1
+	v = 1;
+	a = 1;
+	b = 1;
 	printf("%.Lf, ", b);
 	while (v <= 49)
 	{
