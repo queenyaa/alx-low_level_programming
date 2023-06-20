@@ -9,6 +9,7 @@ int main(void)
 {
 	unsigned long a = 1; /* first fibonacci number */
 	unsigned long b = 2; /* second fibonacci number */
+	unsigned long c;
 
 	printf("%lu, %lu", a, b);
 
