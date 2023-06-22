@@ -1,20 +1,29 @@
 #include <stdio.h>
 #include <math.h>
-#include "main.h"
 
 /**
  * main - entry point
- * largestPrimeFactor: the largest prime factor
- * Description: print prime factor of 612852475143
+ * 
+ * description: print prime factor of 612852475143
  * Return: 0
  */
 
 int main(void)
 {
-	long n = 612852475143;
-	long f = largestPrimeFactor(n);
+	unsigned long a = 612852475143;
+	unsigned long b = 2;
 
-	printf("%ld\n", n, f);
+	while (b < a)
+	{
+		if (a % b == 0)
+		{
+			a /= b;
+			b = 2;
+		}
+		else
+			b++;
+	}
+	printf("%lu\n", a);
 
 	return (0);
 }
