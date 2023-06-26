@@ -10,7 +10,7 @@
 void print_rev(char *s)
 {
 	int v, w;
-       
+
 	v = 0;
 
 	while (s[v] != '\0') /*to calculate the length of the string */
