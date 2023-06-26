@@ -10,20 +10,16 @@ int _atoi(char *s)
 {
 
 	int d = 1;
-	int e = 0;
-	int f = 0;
+	unsigned int e = 0;
 
-	if (s[f] == '-' || s[f] == '+')
-	{
-		d = (s[f] == '-') ? -1 : 1;
-		f++;
-	}
-
-	while (s[f] >= '0' && s[f] <= '9')
-	{
-		e = e * 10 + (s[f] - '0');
-		f++;
-	}
+	do {
+		if (*s == '-')
+			d *= -1;
+		else if (*s >= '0' && *s <= '9')
+			e = (e * 10) + (*s - '0');
+		else if (e > 0)
+			break;
+	} while (*s++);
 
 	return (d * e);
 }
