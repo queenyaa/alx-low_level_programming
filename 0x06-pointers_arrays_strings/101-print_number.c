@@ -7,16 +7,22 @@
 
 void print_number(int v)
 {
+	unsigned int w;
+
 	if (v < 0)
 	{
+		w = -v;
 		_putchar('-');
-		v = -v;
 	}
-
-	if (v / 10 != 0)
+	else
 	{
-		print_number(v / 10);
+		w = v;
 	}
 
-	_putchar('0' + v % 10);
+	if (w / 10)
+	{
+		print_number(w / 10);
+	}
+
+	_putchar('0' + (w % 10));
 }
