@@ -5,26 +5,32 @@
  * @b: the string being capitalized
  * Return: a pointer for the modified string
  */
-
 char *cap_string(char *b)
 {
-	char *d = b;
 	int s_c = 0;
 
-	while (*d)
+	while (b[s_c])
 	{
-		if ((*d >= 'a' && *d <= 'z') && s_c)
-		{
-			*d -= 32;
-		}
-		s_c = (*d == ' ' || *d == '\t' || *d == '\n' ||
-				*d == ',' || *d == ';' || *d == '.' ||
-				*d == '!' || *d == '?' || *d == '"' ||
-				*d == '(' || *d == ')' || *d == '{' ||
-				*d == '}');
-			s_c = 0;
+		while (!(b[s_c] >= 'a' && b[s_c] <= 'z'))
+			s_c++;
+		
+		if (b[s_c - 1] == ' ' ||
+		b[s_c - 1] == '\t' ||
+		b[s_c - 1] == '\n' ||
+		b[s_c - 1] == ',' ||
+		b[s_c - 1] == ';' ||
+		b[s_c - 1] == '.' ||
+		b[s_c - 1] == '!' ||
+		b[s_c - 1] == '?' ||
+		b[s_c - 1] == '"' ||
+		b[s_c - 1] == '(' ||
+		b[s_c - 1] == ')' ||
+		b[s_c - 1] == '{' ||
+		b[s_c - 1] == '}' ||
+		s_c == 0)
+			b[s_c] -= 32;
+		s_c++;
 	}
-	d++;
 
 	return (b);
 }
