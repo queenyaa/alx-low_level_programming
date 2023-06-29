@@ -9,31 +9,22 @@
 char *cap_string(char *b)
 {
 	char *d = b;
-	int separator_count = 0;
+	int s_c = 0;
 
-	while (*d != '\0')
+	while (*d)
 	{
-		if (*d >= 'a' && *d <= 'z')
+		if ((*d >= 'a' && *d <= 'z') && s_c)
 		{
-			if (separator_count == 0)
-			{
-				*d -= 32; /*converts into uppercase*/
-			}
+			*d -= 32;
 		}
-		else
-		{
-			separator_count++;
-			if (separator_count == 1)
-			{
-				/*reset separator count when a separator is encountered*/
-				if (*d == ' ' || *d == '\t' || *d == '\n' || *d == ',' || *d == ';' || *d == '.' || *d == '!' || *d == '?' || *d == '"' || *d == '(' || *d == ')' || *d == '{' || *d == '}')
-				{
-					separator_count = 0;
-				}
-			}
-		}
-		d++;
+		s_c = (*d == ' ' || *d == '\t' || *d == '\n' ||
+				*d == ',' || *d == ';' || *d == '.' ||
+				*d == '!' || *d == '?' || *d == '"' ||
+				*d == '(' || *d == ')' || *d == '{' ||
+				*d == '}');
+			s_c = 0;
 	}
+	d++;
 
 	return (b);
 }
