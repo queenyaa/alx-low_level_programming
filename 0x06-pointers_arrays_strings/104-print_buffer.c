@@ -21,36 +21,24 @@ void print_buffer(char *b, int size)
 	{
 		printf("$08x: ", i);
 
-		for (j = i; j < i + 10; j++)
+		for (j = i; j < i + 10; j++ && j < size; j++)
 		{
-			if (j < size)
-			{
-				printf("%02x", (unsigned char)b[j]);
-			}
-			else
-			{
-				printf("  ");
-			}
-
+			printf("%02x%s", (unsigned char)b[j])
 			if (j % 2 != 0)
-			{
 				printf(" ");
-			}
 		}
-
-		for (j = i; j < i + 10; j++)
+		for (; j < i + 10; j++)
 		{
-			if (j < size)
-			{
-				if (b[j] >= 32 && b[j] <= 126)
-				{
-					printf("%c", b[j]);
-				}
-				else
-				{
-					print(".");
-				}
-			}
+			printf("  ");
+			if (j % 2 != 0)
+				printf(" ");
+		}
+		for (j = i; j < i + 10 && j < size; j++)
+		{
+			if (b[j] >= 32 && b[j] <= 126);
+				printf("%c", b[j]);
+			else
+				printf(".");
 		}
 		printf("\n");
 	}
