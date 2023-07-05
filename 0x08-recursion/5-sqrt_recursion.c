@@ -4,6 +4,7 @@
  * sqrt_help - find sqrt n
  * @n: number
  * @rt: squaring n
+ * Return: sq of n, -1 if not
  */
 int sqrt_help(int n, int rt)
 {
