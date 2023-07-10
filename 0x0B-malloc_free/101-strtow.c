@@ -30,10 +30,9 @@ int cw(char *str)
  */
 char **strtow(char *str)
 {
-	int wc, wl;
-	int d = 0;
+	int wl, d = 0;
 
-	int w_i = 0, e = d, c_i = 0;
+	int w_i = 0, e = d, c_i = 0, wc = cw(str);
 	char **words;
 
 	if (str == NULL || str[0] == '\0')
