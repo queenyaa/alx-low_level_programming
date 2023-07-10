@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdlib.h>
+#include <string.h>
 #define NULL ((void *)0)
 
 /**
@@ -10,22 +11,15 @@
  */
 char *argstostr(int ac, char **av)
 {
-	int tot_l, k, i, l, j;
-	char *concat, *arg;
+	int tot_l, k, i, j;
+	char *concat;
 
 	if (ac == 0 || av == NULL)
 		return (NULL);
 
 	tot_l = 0;
 	for (i = 0; i < ac; i++)
-	{
-		arg = av[i];
-		l = 0;
-
-		while (arg[l])
-			l++;
-		tot_l += l + 1; /*+1 for '\n'*/
-	}
+		tot_l += strlen(av[i]) + 1;
 
 	concat = (char *)malloc(tot_l * sizeof(char));
 	if (concat == NULL)
@@ -34,16 +28,15 @@ char *argstostr(int ac, char **av)
 	j = 0;
 	for (i = 0; i < ac; i++)
 	{
-		arg = av[i];
-
 		k = 0;
-		while (arg[k])
+
+		while (av[i][k] != '\0')
 		{
-			concat[j++] = arg[k++];
+			concat[j++] = av[i][k++];
 		}
 		concat[j++] = '\n';
 	}
-	concat[j] = '\0';
+	concat[j -1] = '\0';
 
 	return (concat);
 }
