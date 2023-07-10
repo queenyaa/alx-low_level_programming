@@ -9,16 +9,19 @@
  */
 int cw(char *str)
 {
+	int e;
 	int c = 0;
 	int d = 0;
 
-	while (str[d] == ' ')
-		d++;
-	if (str[d] != '\0')
+	for (e = 0; str[e] != '\0'; e++)
 	{
-		c++;
-		while (str[d] != ' ' && str[d] != '\0')
-			d++;
+		if (str[e] == ' ')
+			d = 0;
+		else if (d == 0)
+		{
+			d = 1;
+			c++;
+		}
 	}
 	return (c);
 }
@@ -30,43 +33,40 @@ int cw(char *str)
  */
 char **strtow(char *str)
 {
-	int wl, d = 0;
+	char **a, *t;
+	int b, d = 0, l = 0, w, e = 0, st, ed;
 
-	int w_i = 0, e = d, c_i = 0, wc = cw(str);
-	char **words;
-
-	if (str == NULL || str[0] == '\0')
-		return (NULL);
-	if (wc == 0)
-		return (NULL);
-
-	words = (char **)malloc((wc + 1) * sizeof(char *));
-	if (words == NULL)
+	while (*(str + l))
+		l++;
+	w = cw(str);
+	if (w == 0)
 		return (NULL);
 
-	while (str[d] != '\0')
+	a = (char **)malloc(sizeof(char *) * (w + 1));
+	if (a == NULL)
+		return (NULL);
+
+	for (b = 0; b <= l; b++)
 	{
-		while (str[d] == ' ')
-			d++;
-		if (str[d] != '\0')
-			while (str[e] != ' ' && str[e] != '\0')
-				e++;
-
-		wl = e - d;
-
-		words[w_i] = (char *)malloc((wl + 1) * sizeof(char));
-		if (words[w_i] == NULL)
+		if (str[b] == ' ' || str[b] == '\0')
 		{
-			while (w_i--)
-				free(words[w_i]);
-			free(words);
-			return (NULL);
+			if (e)
+			{
+				ed = b;
+				t = (char *)malloc(sizeof(char) * (e + 1));
+				if (t == NULL)
+					return (NULL);
+				while (st < ed)
+					*t++ = str[st++];
+				*t = '\0';
+				a[d] = t - e;
+				d++;
+				e = 0;
+			}
 		}
-		while (d < e)
-			words[w_i][c_i] = str[d++];
-		words[w_i][c_i] = '\0';
-		w_i++;
+		else if (e++ == 0)
+			st = b;
 	}
-	words[w_i] = NULL;
-	return (words);
+	a[d] = NULL;
+	return (a);
 }
