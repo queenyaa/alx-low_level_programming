@@ -1,139 +1,204 @@
 #include "main.h"
-#include <stdlib.h>
-#include <stdio.h>
+
+int str_len(char *str);
+char *c_array(int size);
+char *iterate_z(char *str);
+void gprod(char *prod, char *mul, int dig, int z);
+void mul_n(char *fin_prod, char *n_prod, int n_len);
+int gdig(char b);
 
 /**
- * print_s - prints string
- * @str: string
- * @len: size of string
- * Return: void
+ * str_len - find the length of string
+ * @str: the string to be measured
+ *
+ * Return: the length of string
  */
-void print_s(char *str, int len)
+int str_len(char *str)
 {
-	int x, y;
+	int l = 0;
 
-	x = y = 0;
-	while (x < 1)
-	{
-		if (str[x] != '0')
-			y = 1;
-		if (y || x == len - 1)
-			_putchar(str[x]);
-		x++;
-	}
-	_putchar('\n');
-	free(str);
+	while (*str++)
+		l++;
+
+	return (l);
 }
 
 /**
- * mul - multiplies char with string and puts answer into dest
- * @a: char to multiply
- * @n1: string to multiply
- * @n_i: last non NULL indext of n1
- * @d: destination of multiplication
- * @d_i: highest index to start addition
- * Return: pointer to d, NULL on failuer
+ * c_array - creates an array of chars and initialize, adds a null byte
+ * @size: size of the array to initialized
+ * Return: pointer to array, exits 98 if insufficient space
  */
-char *mul(char a, char *n1, int n_i, char *d, int d_i)
+char *c_array(int size)
 {
-	int y, z, mul, add, m_rem, a_rem;
+	char *ar;
+	int ind;
 
-	m_rem = a_rem = 0;
-	for (y = n_i, z = d_i; y >= 0; y--, z--)
-	{
-		mul = (a - '0') * (n1[y] - '0') + m_rem;
-		m_rem = mul / 10;
-		add = (d[z] - '0') + (mul % 10) + a_rem;
-		a_rem = add / 10;
-		d[z] = add % 10 + '0';
-	}
-	for (a_rem += m_rem; z >= 0 && a_rem; z--)
-	{
-		add = (d[z] - '0') + a_rem;
-		a_rem = add / 10;
-		d[z] = add % 10 + '0';
-	}
-	if (a_rem)
-		return (NULL);
-	return (d);
+	ar = malloc(sizeof(char) * size);
+
+	if (ar == NULL)
+		exit(98);
+
+	for (ind = 0; ind < (size - 1); ind++)
+		ar[ind] = 'x';
+	ar[ind] = '\0';
+
+	return (ar);
 }
 
 /**
- * check_dig - checks that arguments are digits
- * @ap: pointer to argument
- * Return: 0 if digits, 1 otherwise
+ * iterate_z - iterates through string of numbers, from 0 till a non-0
+ * @str: the string of numbers
+ * Return: a pointer to the next non-0 element
  */
-int check_dig(char **ap)
+char *iterate_z(char *str)
 {
-	int x, y;
+	while (*str && *str == '0')
+		str++;
 
-	for (x = 1; x < 3; x++)
+	return (str);
+}
+
+/**
+ * gdig - converts a digit char to conrresponding int
+ * @b: char to be converted
+ * Return: the converted int, exit 98 if b is non-digit
+ */
+int gdig(char b)
+{
+	int dig = b - '0';
+
+	if (dig < 0 || dig > 9)
 	{
-		for (y = 0; ap[x][y]; y++)
-			if (ap[x][y] < '0' || ap[x][y] > '9')
-				return (1);
+		printf("Error\n");
+		exit(98);
 	}
-	return (0);
+	return (dig);
 }
 
 /**
- * st - initialize a string
- * @str: string to initialize
- * @len: length of string
- * Return: void
+ * gprod - multiplies string of numbers by single digit
+ * @prod: buffer to store result
+ * @mul: string of numbers
+ * @dig: the single digit
+ * @z: necessary number of leading zeroes
+ * Description: if mul has a non-digit, exit 98
  */
-void st(char *str, int len)
+void gprod(char *prod, char *mul, int dig, int z)
 {
-	int x;
+	int mlen, n, tn = 0;
 
-	for (x = 0; x < len; x++)
-		str[x] = '0';
-	str[x] = '\0';
+	mlen = str_len(mul) - 1;
+	mul += mlen;
+
+	while (*prod)
+	{
+		*prod = 'x';
+		prod++;
+	}
+	prod--;
+
+	while (z--)
+	{
+		*prod = '0';
+		prod--;
+	}
+	for (; mlen >= 0; mlen--, mul--, prod--)
+	{
+		if (*mul < '0' || *mul > '9')
+		{
+			printf("Error\n");
+			exit(98);
+		}
+		n = (*mul - '0') * dig;
+		n += tn;
+		*prod = (n % 10) + '0';
+		tn = n / 10;
+	}
+	if (tn)
+		*prod = (tn % 10) + '0';
 }
 
 /**
- * main - multiply 2 numbers
- * @argc: number of arguments
- * @argv: argument vector
- * Return: 0 (success), exit (98) otherwise
+ * add_n - adds the numbers stored in 2 strings
+ * @fin_prod: buffer storing the running final product
+ * @n_prod: next product to be added
+ * @n_len: length of next_prod
+ */
+void add_n(char *fin_prod, char *n_prod, int n_len)
+{
+	int n, tn = 0;
+
+	while (*(fin_prod + 1))
+		fin_prod++;
+
+	for (; *fin_prod != 'x'; fin_prod--)
+	{
+		n = (*fin_prod - '0') + (*n_prod - '0');
+		n += tn;
+		*fin_prod = (n % 10) + '0';
+		tn = n / 10;
+
+		n_prod--;
+		n_len--;
+	}
+	for (; n_len >= 0 && *n_prod != 'x'; n_len--)
+	{
+		n = (*n_prod - '0');
+		n += tn;
+		*fin_prod = (n % 10) + '0';
+		tn = n / 10;
+
+		fin_prod--;
+		n_prod--;
+	}
+	if (tn)
+		*fin_prod = (tn % 10) + '0';
+}
+
+/**
+ * main - multiplies 2 +ve nums
+ * @argv: arguments passed
+ * @argc: array to pointers
+ * Return: 0, if arguments incorrect exit 98
  */
 int main(int argc, char *argv[])
 {
-	int len1, len2, l, bi, x;
-	char *d;
-	char *b;
-	char f[] = "Errnor\n";
+	char *fin_prod, *n_prod;
+	int size, ind, dig, z = 0;
 
-	if (argc != 3 || check_dig(argv))
+	if (argc != 3)
 	{
-		for (bi = 0; f[bi]; bi++)
-			_putchar(f[bi]);
+		printf("Error\n");
 		exit(98);
 	}
-	for (len1 = 0; argv[1][len1]; len1++)
-		;
-	for (len2 = 0; argv[2][len2]; len2++)
-		;
-	l = len1 + len2 + 1;
-	d = malloc(l * sizeof(char));
-	if (d == NULL)
+	if (*(argv[1]) == '0')
+		argv[1] = iterate_z(argv[1]);
+	if (*(argv[2]) == '0')
+		argv[2] = iterate_z(argv[2]);
+	if (*(argv[1]) == '\0' || *(argv[2]) == '\0')
 	{
-		for (bi = 0; f[bi]; bi++)
-			_putchar(f[bi]);
-		exit(98);
+		printf("0\n");
+		return (0);
 	}
-	st(d, l - 1);
-	for (bi = len2 - 1, x = 0; bi >= 0; bi--, x++)
+	size = str_len(argv[1]) + str_len(argv[2]);
+	fin_prod = c_array(size + 1);
+	n_prod = c_array(size + 1);
+
+	for (ind = str_len(argv[2]) - 1; ind >= 0; ind--)
 	{
-		b = mul(argv[2][bi], argv[1], len1 - 1, d, (l - 2) - x);
-		if (b == NULL)
-		{
-			for (bi = 0; f[bi]; bi++)
-				_putchar(f[bi]);
-			free(d);
-			exit(98);
-		}
+		dig = gdig(*(argv[2] + ind));
+		gprod(n_prod, argv[1], dig, z++);
+		add_n(fin_prod, n_prod, size - 1);
 	}
-	print_s(d, l - 1);
+	for (ind = 0; fin_prod[ind]; ind++)
+	{
+		if (fin_prod[ind] != 'x')
+			putchar(fin_prod[ind]);
+	}
+	putchar('\n');
+
+	free(n_prod);
+	free(fin_prod);
+
 	return (0);
 }
