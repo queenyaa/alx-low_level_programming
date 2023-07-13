@@ -77,7 +77,7 @@ int check_dig(char **ap)
 }
 
 /**
- * st: initialize a string
+ * st - initialize a string
  * @str: string to initialize
  * @len: length of string
  * Return: void
@@ -99,7 +99,7 @@ void st(char *str, int len)
  */
 int main(int argc, char *argv[])
 {
-	int len1, len2, l, bi, c;
+	int len1, len2, l, bi, x;
 	char *d;
 	char *b;
 	char f[] = "Errnor\n";
@@ -123,9 +123,9 @@ int main(int argc, char *argv[])
 		exit(98);
 	}
 	st(d, l - 1);
-	for (bi = len2 - 1, c = 0; bi >= 0; bi--, c++)
+	for (bi = len2 - 1, x = 0; bi >= 0; bi--, x++)
 	{
-		b = mul(argv[2][bi], argv[1], len1 - 1, d, (l - 2) - c);
+		b = mul(argv[2][bi], argv[1], len1 - 1, d, (l - 2) - x);
 		if (b == NULL)
 		{
 			for (bi = 0; f[bi]; bi++)
