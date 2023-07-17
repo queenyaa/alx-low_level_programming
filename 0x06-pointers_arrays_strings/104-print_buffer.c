@@ -37,25 +37,25 @@ void print_hex(char *b, int i, int j)
  * print_ASC - print ascii values for string b,
  * formatted to replace nonprintable chars with '.'
  * @b: string
- * @i: start
- * @j: end
+ * @k: start
+ * @l: end
  */
-void print_ASC(char *b, int i, int j)
+void print_ASC(char *b, int k, int l)
 {
 	int d, e = 0;
 
-	while (e < j)
+	while (e < l)
 	{
-		d = *(b + e + i);
-		if (!_print_AS(d))
+		d = *(b + e + k);
+		if (!print_ASC(d))
 			d = 46;
-		printf("%c", (char)d);
+		printf("%c", d);
 		e++;
 	}
 }
 
 /**
- * print_buffer -prints buffer
+ * print_buffer - prints buffer
  * @b: buffer
  * @size: size
  * Return: void
