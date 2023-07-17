@@ -31,11 +31,11 @@ char *_strcpy(char *dest, char *src)
 
 	l = 0;
 
-	while (src[l] !='\0')
+	while (src[l] != '\0')
 		l++;
 
 	for (i = 0; i < l; i++)
-		dest[i] = src [i];
+		dest[i] = src[i];
 	dest[i] = '\0';
 
 	return (dest);
@@ -52,11 +52,13 @@ dog_t *new_dog(char *name, float age, char *owner)
 {
 	/*allocate memory for ndog*/
 	dog_t *new_dog = malloc(sizeof(dog_t));
+
 	if (new_dog == NULL)
-		return NULL;
+		return (NULL);
 
 	/*allocate memory and copy new string*/
 	new_dog->name = malloc(_strlen(name) + 1);
+
 	if (new_dog->name == NULL)
 	{
 		free(new_dog);
@@ -66,6 +68,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 
 	/*allocate memory and copy the owner string*/
 	new_dog->owner = malloc(_strlen(owner) + 1);
+
 	if (new_dog->owner == NULL)
 	{
 		free(new_dog->name);
