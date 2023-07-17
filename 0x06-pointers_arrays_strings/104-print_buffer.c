@@ -24,7 +24,7 @@ void print_buffer(char *b, int size)
 		for (d = c; d < c + 9; d += 2)
 		{
 			if ((d < size) && ((d + 1) < size))
-				printf("%02x%02x: ", b[d], b[d + 1]);
+				printf("%02x%02x ", b[d], b[d + 1]);
 			else
 			{
 				while (++d <= c + 10)
@@ -32,7 +32,7 @@ void print_buffer(char *b, int size)
 				printf(" ");
 			}
 		}
-		for (d = c; d < c + 9 && d < size; d++)
+		for (d = c; d < c + 10 && d < size; d++)
 		{
 			if (b[d] >= 32 && b[d] <= 126)
 				printf("%c", b[d]);
