@@ -21,14 +21,14 @@ void print_buffer(char *b, int size)
 	{
 		if (c % 10 == 0)
 			printf("%08x: ", c);
-		for (d = c; d < c + 9; d += 2)
+		for (d = c; d < c + 10; d += 2)
 		{
 			if ((d < size) && ((d + 1) < size))
 				printf("%02x%02x ", b[d], b[d + 1]);
 			else
 			{
-				while (++d <= c + 10)
-					printf(" ");
+				while (++d < c + 10)
+					printf("   ");
 				printf(" ");
 			}
 		}
