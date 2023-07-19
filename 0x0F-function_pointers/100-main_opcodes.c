@@ -12,7 +12,7 @@
 int main(int argc, char *argv[])
 {
 	int bytes, r;
-	unsigned char *main_ptr = (unsigned char *)main;
+	char *main_ptr = (char *)main;
 
 	if (argc != 2)
 	{
@@ -30,9 +30,13 @@ int main(int argc, char *argv[])
 
 	for (r = 0; r < bytes; r++)
 	{
-		printf("%02x ", main_ptr[r]);
+		if (r == bytes -1)
+		{
+			printf("%02hhx\n", main_ptr[r]);
+			break;
+		}
+		printf("%02hhx ", main_ptr[r]);
 	}
-	printf("\n");
 
 	return (0);
 }
