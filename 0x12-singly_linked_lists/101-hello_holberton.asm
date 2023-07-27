@@ -3,16 +3,20 @@ section .data
 	format: db '%s', 10, 0
 
 section .text
-	extern printf, _exit
+	extern printf
 
 global main
 
 main:
-	mov rdi, format
-	mov rsi, hello
-	mov rax, 0  ; Clear RAX to indicate we using varargs
-	call printf
 
-	; Exit the program
-	xor rdi, rdi
-	call _exit
+	push	rbp
+
+	mov	rdi,format
+	mov	rsi,hello
+	mov	rax,0		; Clear RAX to indicate we using varargs
+	call	printf
+
+	pop	rbp
+
+	mov	rax,0
+	ret
