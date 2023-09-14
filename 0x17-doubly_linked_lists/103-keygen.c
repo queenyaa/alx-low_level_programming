@@ -30,7 +30,7 @@ int f4(char *usrn, int len)
 }
 
 /**
- * f5 = multiplies each char of username
+ * f5 - multiplies each char of username
  * @usrn: username
  * @len: length of username
  * Return: multiplied char
