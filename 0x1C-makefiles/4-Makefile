@@ -8,16 +8,15 @@ RM = rm -f
 CFLAG = -Wall -Werroe -Wextra -pedantic
 
 all: $(OBJ)
-	$(CC) $(OBJ) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
-@%.o: %.c
-	@$(CC) $(CFLAG) -c $< -o $@
+.PHONY: clean oclean fclean re
 
 clean:
-	$(RM) *~ $(NAME)
+	$(RM) -rf *~ $(NAME)
 
 oclean:
-	$(RM) $(OBJ)
+	$(RM) -rf $(OBJ)
 
 fclean: clean oclean
 
