@@ -9,13 +9,13 @@ RM = rm -f
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $^ -o $@
+	$(CC) $(OBJ) -o $(NAME)
 
-%.o: %.c
-	$(CC) -c $< -o $@
+# %.o: %.c
+	# $(CC) -c $< -o $@
 
 clean:
-	$(RM) *~ $(OBJ)
+	$(RM) *~ $(NAME)
 
 oclean:
 	$(RM) $(OBJ)
@@ -24,4 +24,4 @@ fclean: clean oclean
 
 re: fclean all
 
-.PHONY: all clean oclean ofclean re
+@.PHONY: all clean oclean ofclean re
