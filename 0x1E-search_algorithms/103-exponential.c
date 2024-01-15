@@ -1,9 +1,9 @@
 #include "search_algos.h"
 
 /**
- * print_subarray - Prints the elements of the array in the specified
- * range
- * @array: Pointer to the first element of the array
+ * print_subarray - Prints the elements of the array in the
+ * specified range
+ * @array: pointer to the first element of the array
  * @low: the low index of the range
  * @high: the high index of the range
  */
@@ -21,13 +21,15 @@ void print_subarray(int *array, size_t low, size_t high)
 }
 
 /**
- * binary_search - searches for a value in a sorted array using
- * binary search
+ * bin_search - Searches for a value in a sorted array
+ * using binary search
  * @array: pointer to the first element of the array to search in
- * @low: low index of the search range
- * @high: high index of the search range
- * @value: value of the search
- * Return: the index where value is located, or -1 if not present
+ * @low: the low index of the search range
+ * @high: the high index of the search range
+ * @value: value to search for
+ *
+ * Return: the index where value is located,
+ * or -1 if not present
  */
 int bin_search(int *array, size_t low, size_t high, int value)
 {
@@ -36,7 +38,7 @@ int bin_search(int *array, size_t low, size_t high, int value)
 	while (low <= high)
 	{
 		mid = (low + high) / 2;
-		printf("Search in array: ");
+		printf("Searching in array: ");
 		print_subarray(array, low, high);
 
 		if (array[mid] == value)
@@ -50,7 +52,7 @@ int bin_search(int *array, size_t low, size_t high, int value)
 }
 
 /**
- * exponential_search - searches for a value in a sorted array using
+ * exponential_search - Searches for a value in a sorted array using
  * exponential search
  * @array: pointer to the first element of the array to search in
  * @size: number of elements in the array
@@ -64,6 +66,7 @@ int exponential_search(int *array, size_t size, int value)
 
 	if (array == NULL)
 		return (-1);
+
 	if (array[0] == value)
 	{
 		printf("Value checked array[0] = [%d]\n", array[0]);
@@ -71,10 +74,10 @@ int exponential_search(int *array, size_t size, int value)
 	}
 	while (bound < size && array[bound] < value)
 	{
-		printf("Value checked array[%lu] = [%d]\n",
-			bound, array[bound]);
+		printf("Value checked array[%lu] = [%d]\n", bound, array[bound]);
 		bound *= 2;
 	}
+
 	low = bound / 2;
 	high = (bound < size - 1) ? bound : size - 1;
 
