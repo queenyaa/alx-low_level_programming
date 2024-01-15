@@ -202,4 +202,24 @@ In summary, Task 9 is important as it introduces an efficient search algorithm (
 ---
 ## Task 10
 ---
+Task 10, which involves implementing the Exponential search algorithm, is important for several reasons:
+
+1. **Algorithm Understanding:** It provides an opportunity to understand and implement the Exponential search algorithm, which is a searching technique designed for sorted arrays.
+
+2. **Combination of Techniques:** The task combines the Exponential search with Binary search. Exponential search is used to find the range where the target element may exist, and then Binary search is applied within that range. This combination leverages the strengths of both algorithms.
+
+3. **Efficiency:** Exponential search is particularly useful for unbounded arrays (arrays of unknown size) and works well when the size of the array is not known in advance. It is efficient for large datasets.
+
+4. **Educational Purposes:** It serves as an educational exercise to enhance skills in algorithmic thinking, problem-solving, and implementing different searching algorithms.
+
+5. **Practical Application:** Exponential search is utilized in scenarios where the size of the dataset is not fixed or known, making it suitable for certain real-world applications.
+
+6. **Demonstration of Output:** The implementation includes detailed output statements that help visualize how the algorithm narrows down the search range. This can aid in understanding the internal workings of the algorithm.
+
+In summary, Task 10 is valuable for learning, practicing algorithmic concepts, and gaining insights into the efficiency of searching algorithms, particularly in scenarios with unbounded arrays.
+---
+
+---
+## Task 11
+---
 
