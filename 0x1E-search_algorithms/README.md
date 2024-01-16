@@ -222,4 +222,44 @@ In summary, Task 10 is valuable for learning, practicing algorithmic concepts, a
 ---
 ## Task 11
 ---
+Task 11, which involves implementing an advanced binary search algorithm, is important for several reasons:
+
+1. **Understanding Binary Search Variations:** It helps in understanding and implementing variations of the binary search algorithm. In this case, the task involves finding the first occurrence of a value in a sorted array, which is a common modification to the basic binary search.
+
+2. **Recursion Usage:** The task involves using recursion to perform the binary search. Understanding recursive algorithms is crucial in computer science and programming. It enhances problem-solving skills and contributes to a deeper understanding of algorithmic design.
+
+3. **Handling Edge Cases:** The task includes considerations for edge cases, such as when the array is `NULL`. This encourages developers to think about the robustness of their algorithms and handle special cases appropriately.
+
+4. **Printing Array at Each Step:** Printing the array at each step of the search helps visualize the algorithm's behavior and aids in debugging. It provides a clear view of how the array is being divided during each recursive call.
+
+5. **Enhancing Code Readability:** The inclusion of print statements for the array at each step contributes to code readability. It makes it easier for developers to follow the execution flow and understand how the algorithm is progressing.
+
+6. **Application in Real-world Scenarios:** Binary search algorithms are widely used in various applications, such as searching in databases, information retrieval, and more. Understanding the nuances of advanced binary search algorithms is valuable for solving real-world problems efficiently.
+
+In summary, Task 11 is essential for honing algorithmic skills, understanding variations of binary search, practicing recursion, and dealing with edge cases. These skills are fundamental to writing efficient and reliable code in various programming scenarios.
+---
+
+---
+## Task 12
+---
+Task 11, which involves implementing an advanced binary search algorithm, is important for several reasons:
+
+1. **Understanding Binary Search Variations:** It helps in understanding and implementing variations of the binary search algorithm. In this case, the task involves finding the first occurrence of a value in a sorted array, which is a common modification to the basic binary search.
+
+2. **Recursion Usage:** The task involves using recursion to perform the binary search. Understanding recursive algorithms is crucial in computer science and programming. It enhances problem-solving skills and contributes to a deeper understanding of algorithmic design.
+
+3. **Handling Edge Cases:** The task includes considerations for edge cases, such as when the array is `NULL`. This encourages developers to think about the robustness of their algorithms and handle special cases appropriately.
+
+4. **Printing Array at Each Step:** Printing the array at each step of the search helps visualize the algorithm's behavior and aids in debugging. It provides a clear view of how the array is being divided during each recursive call.
+
+5. **Enhancing Code Readability:** The inclusion of print statements for the array at each step contributes to code readability. It makes it easier for developers to follow the execution flow and understand how the algorithm is progressing.
+
+6. **Application in Real-world Scenarios:** Binary search algorithms are widely used in various applications, such as searching in databases, information retrieval, and more. Understanding the nuances of advanced binary search algorithms is valuable for solving real-world problems efficiently.
+
+In summary, Task 11 is essential for honing algorithmic skills, understanding variations of binary search, practicing recursion, and dealing with edge cases. These skills are fundamental to writing efficient and reliable code in various programming scenarios.
+---
+
+---
+## Task 13
+---
 
