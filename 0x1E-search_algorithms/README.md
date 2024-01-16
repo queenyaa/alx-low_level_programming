@@ -262,4 +262,25 @@ In summary, Task 11 is essential for honing algorithmic skills, understanding va
 ---
 ## Task 13
 ---
+Task 13 is important because it introduces the concept of a skip list, a data structure that enhances the performance of search operations in a singly linked list. Skip lists are designed to improve the time complexity of searches by adding an "express lane," allowing for quicker traversal of the list.
+
+The task requires implementing a function (`linear_skip`) that searches for a value in a sorted skip list of integers. The function must use the express lane to skip nodes efficiently, reducing the number of steps needed to find the desired value.
+
+Understanding and implementing skip lists is valuable for developers as it demonstrates an alternative approach to optimizing search operations in linked lists. It also provides hands-on experience with a data structure that combines simplicity with efficiency, making it a useful addition to a programmer's toolkit.
+---
+
+---
+## Task 14
+---
+The time complexity of a jump search in a singly linked list of size \( n \) with a step size of \( \sqrt{n} \) is \( O(\sqrt{n}) \) on average.
+
+In a jump search, the list is divided into blocks, and a linear search is performed within each block. With a step size of \( \sqrt{n} \), the number of steps required to reach the correct block is \( O(\sqrt{n}) \). Within each block, a linear search is performed, resulting in an average case time complexity of \( O(\sqrt{n}) \).
+
+This makes jump search more efficient than a simple linear search but less efficient than binary search, which has a time complexity of \( O(\log{n}) \) in the average case. Jump search is particularly useful when the list is relatively large and ordered.
+---
+
+---
+## task 15
+---
+
 
